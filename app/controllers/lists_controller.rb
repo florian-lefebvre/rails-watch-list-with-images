@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  include ActiveStorage::SetCurrent
   before_action :set_list, only: [:show, :destroy]
 
   def index
@@ -35,6 +36,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name, :photo)
+    params.require(:list).permit(:name, :cover)
   end
 end
